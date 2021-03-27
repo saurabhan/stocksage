@@ -45,7 +45,7 @@ sentiment = SentimentIntensityAnalyzer()
 
 @app.route('/')
 def index():
-    symbol  = request.args.get('stock', False)
+    symbol  = request.args.get('stock',default='banknifty')
     stocks = {
         "Bank Nifty" : "BankNifty",
         "Apple":"AAPL",
