@@ -4,5 +4,5 @@ nltk==3.5
 Werkzeug==1.0.1
 pandas==1.1.5
 Flask==1.1.2
-twint==2.1.21
+twint==2.1.20
 gunicorn
