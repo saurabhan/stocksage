@@ -60,9 +60,9 @@ def index():
     default_stock = 'banknifty'
     if symbol != default_stock:
         default_stock = symbol
-        ploturl = f"/public/static/images/{default_stock}.png"
+        ploturl = f"https://raw.githubusercontent.com/saurabhan/stocksage/main/static/images/{default_stock}.png"
     else:
-        ploturl = f"/public/static/images/{default_stock}.png"
+        ploturl = f"https://raw.githubusercontent.com/saurabhan/stocksage/main/static/images/{default_stock}.png"
         
     print(bb_value)
     return render_template('stock.html',stocks=stocks, url=ploturl, symbol=symbol, bbvalue=bb_value)
