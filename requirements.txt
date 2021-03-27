@@ -1,0 +1,8 @@
+numpy==1.19.3
+matplotlib==3.3.3
+nltk==3.5
+Werkzeug==1.0.1
+pandas==1.2.0
+Flask==1.1.2
+twint==2.1.21
+gunicorn
