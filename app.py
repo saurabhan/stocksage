@@ -156,16 +156,26 @@ def get_sentiment():
             df['dt'] = df.index
             df.dropna(inplace=True)
             df.to_csv(f'./static/data/{value}_score.csv')
-            if df.iat[2,0] > df.iat[1,0]:
+        else:
+            print("not exists")
+    return render_template('stock.html',stocks=stocks, bbvalue=bb_value)
+
+
+@app.route("/bb")
+def bb():
+    for key, value in stocks.items():
+        file = pathlib.Path(f"./static/data/{value}_score.csv")
+        if file.exists ():
+            print ("File exist")
+            df = pd.read_csv(file)
+            if df.iat[2,1] > df.iat[1,1]:
                 print("Bullish")
                 bb_value[key] = 1
             else:
                 print('Bearish')
                 bb_value[key] = 0
-            
-            print(bb_value)
-        else:
-            print("not exists")
+        
+        print(bb_value)
     return render_template('stock.html',stocks=stocks, bbvalue=bb_value)
     
 
