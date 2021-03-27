@@ -64,7 +64,22 @@ def index():
     else:
         ploturl = f"https://raw.githubusercontent.com/saurabhan/stocksage/main/static/images/{default_stock}.png"
         
+    
+    for key, value in stocks.items():
+        file = pathlib.Path(f"./static/data/{value}_score.csv")
+        if file.exists ():
+            print ("File exist")
+            df = pd.read_csv(file)
+            if df.iat[2,1] > df.iat[1,1]:
+                print("Bullish")
+                bb_value[key] = 1
+            else:
+                print('Bearish')
+                bb_value[key] = 0
+    
     print(bb_value)
+
+
     return render_template('stock.html',stocks=stocks, url=ploturl, symbol=symbol, bbvalue=bb_value)
 
 @app.route("/updateTweets")
