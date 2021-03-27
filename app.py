@@ -59,7 +59,7 @@ def index():
     
     default_stock = 'banknifty'
     if symbol != default_stock:
-        default_stock = symbol
+        default_stock = symbol.lower()
         ploturl = f"https://raw.githubusercontent.com/saurabhan/stocksage/main/static/images/{default_stock}.png"
     else:
         ploturl = f"https://raw.githubusercontent.com/saurabhan/stocksage/main/static/images/{default_stock}.png"
