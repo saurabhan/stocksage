@@ -23,7 +23,7 @@ app = Flask(__name__,
         template_folder='templates')
 
 
-df = pd.read_csv("D:\\\\tweets_refined_with_Score.csv")
+df = pd.read_csv("./static/data/tweets_refined_with_Score.csv")
 Images = os.path.join('static', 'images')
 
 stocks = {
